@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Mishats Page";
+}
+
+<script type="text/javascript">
+    function Find() {
+        debugger;
+        var firstName = $("#firstName").val();
+        var lastName = $("#lastName").val();
+
+        var urlFind = "http://localhost:39185/api/GoogleNames/" + firstName + "/" + lastName;
+
+        $.ajax({
+            url: urlFind,
+            success: function (data) {
+                $('.responseSrv').html(data);
+            }
+        });
+
+    }
+
+</script>
+
+<p class="lead">
+</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>FirstName</h2>
+
+        <p>Введите Имя: </p>
+        @Html.TextBox("firstName")
+
+    </div>
+    <div class="col-md-4">
+        <h2>LastName</h2>
+
+        <p>Введите Фамилию: </p>
+        @Html.TextBox("lastName")
+
+
+    </div>
+    <div class="col-md-4">
+        <h2>Find Result</h2>
+
+        <p><input type="button" value="Поиск" onclick="Find()" /></p>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="responseSrv">
+
+
+    </div>
+
+</div>
+
