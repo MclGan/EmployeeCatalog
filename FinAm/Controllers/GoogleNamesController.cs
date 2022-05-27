@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Text;
-
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,8 +11,6 @@ namespace FinAm.Controllers
     [ApiController]
     public class GoogleNamesController : ControllerBase
     {
-
-
         // GET api/<GoogleNames>/firstName/LastName
         [HttpGet("{firstName}/{lastName}")]
         public string Get(string firstName, string lastName)
@@ -27,6 +25,5 @@ namespace FinAm.Controllers
                 stringBuilder.AppendLine(string.Format("{0} {1} найден", employee.FirstName, employee.LastName)); 
             return stringBuilder.ToString();
         }
-
     }
 }
